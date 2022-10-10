@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap");
+
+$font-family-base: "Noto Sans JP", sans-serif;
+
+$primary: #729e2e;
+$light: #fff;
+$fire: #e9501d;
+
+$theme-colors: (
+  "primary": $primary,
+  "light": $light,
+  "fire": $fire,
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+@mixin borderShadow($borderPx, $shadowPx) {
+  border: $borderPx solid black;
+  box-shadow: 0 0 $shadowPx 0 rgba(0, 0, 0, 0.5);
+}
+
+.card-config {
+  margin: 5rem;
+  @include borderShadow(2px, 50px);
+}
+
+.btn-config {
+  color: white;
+  margin: 0.5rem 0;
+  @include borderShadow(1px, 5px);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  .card {
+    @extend .card-config;
+    .btn {
+      @extend .btn-config;
+    }
+  }
+}
